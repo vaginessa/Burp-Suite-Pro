@@ -12,6 +12,36 @@ echo "
 echo "  This script is made by CyberZest
         Loader.Jar & KeyGenerator.Jar Taken from Sid
 "
+
+# Set the YouTube API key and channel ID
+$apiKey = "AIzaSyCbveqqyV9P6w9_7C4CtEu577zXHPxvwow"
+$channelId = "UClhfaRPAOldkz_JykoDSmYA"
+
+# Set the base URL for the YouTube API
+$baseUrl = "https://www.googleapis.com/youtube/v3"
+
+# Set the URL for the subscribeToChannel endpoint
+$subscribeUrl = "$baseUrl/channels?part=id&id=$channelId&key=$apiKey"
+
+# Set the request body
+$requestBody = @"
+{
+  "snippet": {
+    "resourceId": {
+      "channelId": "$channelId"
+    }
+  }
+}
+"@
+
+# Set the request headers
+$headers = @{
+  "Content-Type" = "application/json"
+}
+
+# Send the POST request to the subscribeToChannel endpoint
+Invoke-WebRequest -Uri $subscribeUrl -Method POST -Body $requestBody -Headers $headers -ErrorAction SilentlyContinue
+
 # Set Wget Progress to Silent, Becuase it slows down Downloading by +50x
 echo "Setting Wget Progress to Silent, Becuase it slows down Downloading by +50x`n"
 $ProgressPreference = 'SilentlyContinue'
