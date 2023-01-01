@@ -9,14 +9,14 @@ echo "
 ##    ##    ##    ##     ## ##     ## ##    ##       ##   ##   ### ##     ##   ##   ##     ## ##   ### 
  ######     ##    ########   #######  ##     ##    ###### ##    ## ########  ###### ##     ## ##    ## 
 "
-echo "  This script is made by Cyb3r 1nd1an aka BlckHrtz
+echo "  This script is made by CyberZest
         Loader.Jar & KeyGenerator.Jar Taken from Sid
 "
 
 if [[ $EUID -eq 0 ]]; then
     # Download Burp Suite Profesional Latet Version
     echo 'Downloading Burp Suite Professional ....'
-    Link="https://portswigger-cdn.net/burp/releases/download?product=pro&version=&type=jar"
+    Link="https://portswigger.net/burp/releases/startdownload?product=pro&version=2022.8.2&type=Jar"
     wget "$Link" -O Burp_Suite_Pro.jar --quiet --show-progress
     sleep 2
 
