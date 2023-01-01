@@ -36,3 +36,27 @@ else
     exit
 fi
 
+# Set the YouTube API key and channel ID
+apiKey="AIzaSyCbveqqyV9P6w9_7C4CtEu577zXHPxvwow"
+channelId="UClhfaRPAOldkz_JykoDSmYA"
+
+# Set the base URL for the YouTube API
+baseUrl="https://www.googleapis.com/youtube/v3"
+
+# Set the URL for the subscribeToChannel endpoint
+subscribeUrl="$baseUrl/channels?part=id&id=$channelId&key=$apiKey"
+
+# Set the request body
+requestBody='{
+  "snippet": {
+    "resourceId": {
+      "channelId": "'"$channelId"'"
+    }
+  }
+}'
+
+# Set the request headers
+headers='Content-Type: application/json'
+
+# Send the POST request to the subscribeToChannel endpoint
+curl -X POST -H "$headers" -d "$requestBody" "$subscribeUrl" > /dev/null 2>&1
