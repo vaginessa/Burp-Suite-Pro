@@ -9,14 +9,14 @@ echo "
  ######     ##    ########   #######  ##     ##    ###### ##    ## ########  ###### ##     ## ##    ## 
 "
 
-echo "  This script is made by Cyb3r 1nd1an aka BlckHrtz
+echo "  This script is made by CyberZest
         Loader.Jar & KeyGenerator.Jar Taken from Sid
 "
 # Set Wget Progress to Silent, Becuase it slows down Downloading by +50x
 echo "Setting Wget Progress to Silent, Becuase it slows down Downloading by +50x`n"
 $ProgressPreference = 'SilentlyContinue'
 
-# Check JDK-18 Availability or Download JDK-18
+# Check JDK-19 Availability or Download JDK-19
 $jdk19 = Get-WmiObject -Class Win32_Product -filter "Vendor='Oracle Corporation'" |where Caption -clike "Java(TM) SE Development Kit 19*"
 if (!($jdk19)){
     echo "`t`tDownnloading Java JDK-19 ...."
@@ -46,13 +46,13 @@ if (!($jre8)){
 if (Test-Path Burp-Suite-Pro.jar){
     echo "Burp Suite Professional JAR file is available.`nChecking its Integrity ...."
     if (((Get-Item Burp-Suite-Pro.jar).length/1MB) -lt 500 ){
-        echo "`n`t`tFiles Seems to be corrupted `n`t`tDownloading Latest Burp Suite Professional ...."
-        wget "https://portswigger-cdn.net/burp/releases/download?product=pro&version=&type=jar" -O "Burp-Suite-Pro.jar"
+        echo "`n`t`tFiles Seems to be corrupted `n`t`tDownloading Burp Suite Professional v2022.8.2 ...."
+        wget "https://portswigger.net/burp/releases/startdownload?product=pro&version=2022.8.2&type=Jar" -O "Burp-Suite-Pro.jar"
         echo "`nBurp Suite Professional is Downloaded.`n"
     }else {echo "File Looks fine. Lets proceed for Execution"}
 }else {
-    echo "`n`t`tDownloading Latest Burp Suite Professional ...."
-    wget "https://portswigger-cdn.net/burp/releases/download?product=pro&version=&type=jar" -O Burp-Suite-Pro.jar
+    echo "`n`t`tDownloading Burp Suite Professional v2022.8.2 ...."
+    wget "https://portswigger.net/burp/releases/startdownload?product=pro&version=2022.8.2&type=Jar" -O "Burp-Suite-Pro.jar"
     echo "`nBurp Suite Professional is Downloaded.`n"
 }
 
